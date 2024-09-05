@@ -13,7 +13,7 @@ function MyOrders() {
       <Layout>
     
         <div className="flex w-80 items-center justify-center relative">
-          <h1 className="mb-6 fonx">myOrder</h1>
+          <h1 className="mb-6 text-blue-500 text-4xl">My Order</h1>
         </div>
 
         {
