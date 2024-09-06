@@ -55,15 +55,15 @@ function Home() {
       <div className="flex mb-12">
         <input
           className="w-96 bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-rose-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-2 shadow-md focus:shadow-lg focus:shadow-rose-400 dark:shadow-md dark:shadow-purple-500"
-          autocomplete="off"
+
           placeholder="Search a product"
           name="text"
           type="text"
           onChange={(event) => context.setSearchByTitle(event.target.value.trim())}
         />
         <span
-          class="rounded-full bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-rose-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 px-2 py-2 rotate-[45deg] ml-2 shadow-md focus:shadow-lg focus:shadow-rose-400 dark:shadow-md dark:shadow-purple-500"
-        ><svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 128 128">
+          className="rounded-full bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-rose-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 px-2 py-2 rotate-[45deg] ml-2 shadow-md focus:shadow-lg focus:shadow-rose-400 dark:shadow-md dark:shadow-purple-500"
+        ><svg xmlns="http://www.w3.org/2000/svg" className="w-6" viewBox="0 0 128 128">
             <path
               fill="#CA2C31"
               d="m3.77 71.73l16.34-16.1l27.82-4.93l-2.75 14.56L7.57 76.82l-2.43-1.05z"

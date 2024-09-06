@@ -7,28 +7,33 @@ import { createContext, useState , useEffect } from "react";
 export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({children}) => {
-    
+    const saveItem=(newItem)=> {
+        const Obtener = localStorage.getItem('account')
+        const UserList = JSON.parse(Obtener)
+        UserList.push(newItem)
+        localStorage.setItem('account', JSON.stringify(UserList))    
+
+    }
+
+   
+
+    const [showUser, setShowUser] = useState('')
     const [isDetailProductOpen, setIsDetailProductOpen] = useState(false)
-    
     const openProductDetail =()=> setIsDetailProductOpen(true)
     const closeProductDetail=()=> setIsDetailProductOpen(false)
-    
     const [checkOutSideMenuOpen, setCheckOutSideMenuOpen] = useState(false)
-    
     const openCheckOutSideMenuOpen=()=> setCheckOutSideMenuOpen(true)
     const closeCheckOutSideMenuOpen=()=> setCheckOutSideMenuOpen(false)
-
-    
-    
     const [productToShow, setProductToShow] = useState({})
     const [cartProducts, setCartProducts] = useState([])
     const [count, setCount] = useState(cartProducts.length)
-    
-    
+    const [SobrePrecio, setSobrePrecio] = useState(0)
+    const [SobrePrecioTotal, setSobrePrecioTotal] = useState(0)
+    const [mostrarTotalProducto, setMostrarTotalProducto] = useState([])
+    const [cantidadProductoTotal, setCantidadProductoTotal] = useState([])
     const [order, setOrder] = useState([])
     const [searchByTitle, setSearchByTitle] = useState(null)
     const [searchByCategory, setSearchByCategory] = useState(null)
-    
     const [items, setItems] = React.useState(null)
     const [filteredItems, setFilteredItems] = React.useState(null)
     
@@ -37,6 +42,11 @@ export const ShoppingCartProvider = ({children}) => {
       .then(response => response.json())
       .then(data => setItems(data))
     }, [])
+
+    
+
+
+
  
     const filteredItemsByTitle = (items, searchByTitle)=>{
         return items?.filter((item) => item.title.toLowerCase().includes(searchByTitle.toLowerCase()) )
@@ -86,8 +96,9 @@ export const ShoppingCartProvider = ({children}) => {
        
 
       }, [items, searchByTitle, searchByCategory])
-   
 
+
+ 
     return(
         <ShoppingCartContext.Provider value={{
             count,
@@ -110,9 +121,28 @@ export const ShoppingCartProvider = ({children}) => {
             searchByTitle,
             filteredItems,
             searchByCategory,
-            setSearchByCategory
+            setSearchByCategory,
+            SobrePrecio,
+            setSobrePrecio,
+            SobrePrecioTotal,
+            setSobrePrecioTotal,
+            mostrarTotalProducto,
+            setMostrarTotalProducto,
+            cantidadProductoTotal,
+            setCantidadProductoTotal,
+            saveItem,
+            showUser,
+            setShowUser,
+            
         }}>
             {children}
         </ShoppingCartContext.Provider>
     )
 }
+
+
+
+
+
+
+

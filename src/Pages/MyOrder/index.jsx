@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import Layout from "../../components/Layout"
 import { ShoppingCartContext } from "../../Context"
 import OrderCard from "../../components/OrderCard"
@@ -7,6 +7,7 @@ import {ChevronLeftIcon} from '@heroicons/react/24/solid'
 
 function MyOrder() {
 const {order}= useContext(ShoppingCartContext)
+
 const currentPath = window.location.pathname
 let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
 
@@ -20,7 +21,7 @@ if(index === 'last') index = order?.length - 1
           <Link to={'/my-orders/'} className="absolute left-0">
               <ChevronLeftIcon className="h-6 w-6 text-black cursor-pointer" />
           </Link>
-          <h1 className="text-red-500">My Order</h1>
+          <h1 className="text-red-500">My Order personal</h1>
         </div>
       
         <div className="flex flex-col px-6 pb-32 w-96">
@@ -32,6 +33,7 @@ if(index === 'last') index = order?.length - 1
                 title={product.title} 
                 price={product.price} 
                 imageUrl={product.images}
+                contadorProducto={product.contadorProducto}
                 />))
             }        
         </div>

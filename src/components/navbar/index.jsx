@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom"
 import { ShoppingCartContext } from "../../Context"
 import { ShoppingCartIcon } from "@heroicons/react/24/solid"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 
 const Navbar =()=>{
-     const {count, setSearchByCategory, cartProducts } = useContext(ShoppingCartContext)
-
+     const {count, setSearchByCategory, cartProducts, showUser, setShowUser } = useContext(ShoppingCartContext)
+     
+     
+   
+    
     let activeStyle= 'underline underline-offset-4'
     
     return(
@@ -50,7 +53,7 @@ const Navbar =()=>{
 
             <ul className="flex items-center gap-3">
                 <li className="text-black/60">
-                        juan@gmail.com
+                      {showUser}
                 </li>
                 <li>
                     <NavLink to= '/my-orders' className={({isActive}) => isActive ? activeStyle : undefined}>

@@ -8,6 +8,7 @@ import NotFound from '../NofFound'
 import SignIn from '../SignIn'
 import Navbar from '../../components/navbar/'
 import CheckOutSideMenu from '../../components/CheckOutSideMenu'
+import SignUp from '../SignUp'
 import './App.css'
 
 const AppRoutes=()=>{
@@ -51,6 +52,10 @@ const AppRoutes=()=>{
     {
       path:'/sign-in',
       element:<SignIn/>
+    },
+    {
+      path:'/sign-up',
+      element:<SignUp/>
     },
     {
       path:'/my-orders/:id',

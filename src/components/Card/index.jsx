@@ -14,6 +14,7 @@ const Card =({data})=>{
 
     const addProductsToCard=(event, productData)=>{
         event.stopPropagation()
+        productData.contadorProducto = 1
         context.setCartProducts([...context.cartProducts, productData])
         context.setCount(context.count+1)
         context.closeProductDetail()
